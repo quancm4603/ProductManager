@@ -36,7 +36,8 @@ public class ProductManager {
             System.out.println("Menu:");
             System.out.println("1. Add product");
             System.out.println("2. Display all products");
-            System.out.println("3. Exit");
+            System.out.println("3. Search product by ID");
+            System.out.println("4. Exit");
             System.out.print("Enter your choice: ");
 
             choice = scanner.nextInt();
@@ -62,6 +63,13 @@ public class ProductManager {
                     break;
 
                 case 3:
+                    // Tìm kiếm sản phẩm theo ID
+                    System.out.println("Enter product ID:");
+                    int productId = scanner.nextInt();
+                    productRepository.searchProductById(productId);
+                    break;
+
+                case 4:
                     // Thoát chương trình
                     System.out.println("Exiting program.");
                     scanner.close();
