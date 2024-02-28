@@ -1,9 +1,9 @@
 package productmanager;
 
 public class Product {
-    private int id;
-    private String name;
-    private double price;
+    int id;
+    String name;
+    double price;
 
     public Product(int id, String name, double price) {
         this.id = id;
