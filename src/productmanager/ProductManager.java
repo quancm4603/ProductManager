@@ -66,7 +66,7 @@ public class ProductManager {
                     // Tìm kiếm sản phẩm theo ID
                     System.out.println("Enter product ID:");
                     int productId = scanner.nextInt();
-                    productRepository.searchProductById(productId);
+                    System.out.println(productRepository.searchProductById(productId));;
                     break;
 
                 case 4:
