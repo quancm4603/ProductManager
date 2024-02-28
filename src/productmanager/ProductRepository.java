@@ -17,4 +17,13 @@ public class ProductRepository {
     public List<Product> getAllProducts() {
         return productList;
     }
+    
+    public Product searchProductById(int id){
+        for(Product product : productList){
+            if(product.getId() == id){
+                return product;
+            }
+        }
+        return null;
+    }
 }

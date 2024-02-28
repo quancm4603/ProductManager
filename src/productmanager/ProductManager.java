@@ -1,6 +1,7 @@
 package productmanager;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class ProductManager {
     
@@ -25,13 +26,51 @@ public class ProductManager {
 
     public static void main(String[] args) {
         ProductRepository productRepository = new ProductRepository();
-        productRepository.addProduct(new Product(1, "Laptop", 999.99));
-        productRepository.addProduct(new Product(2, "Smartphone", 599.99));
-        productRepository.addProduct(new Product(3, "Headphones", 79.99));
-        
         ProductManager productManager = new ProductManager(productRepository);
-        productManager.displayAllProducts();
+
+        Scanner scanner = new Scanner(System.in);
+        int choice;
+        int id = 1;
         
+        while (true) {
+            System.out.println("Menu:");
+            System.out.println("1. Add product");
+            System.out.println("2. Display all products");
+            System.out.println("3. Exit");
+            System.out.print("Enter your choice: ");
+
+            choice = scanner.nextInt();
+            scanner.nextLine(); // consume the newline character
+
+            switch (choice) {
+                case 1:
+                    // Nhập sản phẩm từ bàn phím
+                    System.out.println("Enter product details:");
+                    System.out.print("Name: ");
+                    String productName = scanner.nextLine();
+                    System.out.print("Price: ");
+                    double productPrice = scanner.nextDouble();
+                    scanner.nextLine(); // consume the newline character
+
+                    productRepository.addProduct(new Product(id, productName, productPrice));
+                    id++;
+                    break;
+
+                case 2:
+                    // Hiển thị danh sách sản phẩm
+                    productManager.displayAllProducts();
+                    break;
+
+                case 3:
+                    // Thoát chương trình
+                    System.out.println("Exiting program.");
+                    scanner.close();
+                    System.exit(0);
+
+                default:
+                    System.out.println("Invalid choice. Please enter a valid option.");
+                    break;
+            }
+        }
     }
-    
 }
