@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ProductManager {
-    
+
     private ProductRepository repository;
 
     public ProductManager(ProductRepository repository) {
@@ -31,7 +31,7 @@ public class ProductManager {
         Scanner scanner = new Scanner(System.in);
         int choice;
         int id = 1;
-        
+
         while (true) {
             System.out.println("Menu:");
             System.out.println("1. Add product");
@@ -66,7 +66,8 @@ public class ProductManager {
                     // Tìm kiếm sản phẩm theo ID
                     System.out.println("Enter product ID:");
                     int productId = scanner.nextInt();
-                    System.out.println(productRepository.searchProductById(productId));;
+                    System.out.println(productRepository.searchProductById(productId));
+                    ;
                     break;
 
                 case 4:
